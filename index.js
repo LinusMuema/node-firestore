@@ -13,9 +13,9 @@ const reference = db.doc('numbers/random')
 const data = {name: string(), number: (Math.random() * 101)}
 
 //Observe data
-db.collection('numbers').onSnapshot(snapshot => {
+db.collection('numbers').doc('random').onSnapshot(doc => {
     console.log('Data received :')
-    snapshot.forEach(doc => { console.log(doc.data()) })
+    console.log(doc.data())
 })
 
 app.use('/add', (req, res) => {
